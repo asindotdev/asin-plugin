@@ -19,7 +19,7 @@
         "shortDescription": "Track Amazon prices and drops",
         "longDescription": "Asin watches Amazon prices for you. Search Amazon, add a product to your watchlist by ASIN or link, and Asin checks its price on a schedule, keeps every price as history and emails you when it drops, reaches your target or is back in stock. Ask how a price has moved before you buy, which tracked products got cheaper, or who sells a product and at what price. Works on 11 Amazon marketplaces, including the US, UK, Germany, France, Japan and India. Asin only reads and changes the watchlist of the account you connect.",
         "developerName": "Asin",
-        "category": "Shopping",
+        "category": "Productivity",
         "capabilities": [
           "Search Amazon products",
           "Track product prices",
