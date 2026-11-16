@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "asin": {
+      "type": "http",
+      "url": "https://www.asin.dev/api/mcp"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "asin",
+  "version": "1.0.0",
+  "description": "Track Amazon prices from Claude: search Amazon, add products to your Asin watchlist, read their price history and get alerted when a price drops, reaches your target or a product is back in stock.",
+  "author": {
+    "name": "Asin",
+    "email": "contact@asin.dev",
+    "url": "https://www.asin.dev"
+  },
+  "homepage": "https://www.asin.dev/docs",
+  "repository": "https://github.com/asindotdev/asin-plugin",
+  "license": "Unlicense",
+  "keywords": ["amazon", "price tracker", "price history", "price alerts", "shopping"]
+}

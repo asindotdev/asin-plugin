@@ -1,0 +1,104 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "asin",
+  "version": "1.0.0",
+  "description": "Track Amazon prices: search Amazon, add products to your Asin watchlist, read their price history and get alerted when a price drops.",
+  "author": {
+    "name": "Asin",
+    "email": "contact@asin.dev",
+    "url": "https://www.asin.dev"
+  },
+  "homepage": "https://www.asin.dev/docs",
+  "repository": "https://github.com/asindotdev/asin-plugin",
+  "license": "Unlicense",
+  "keywords": ["amazon", "price tracker", "price history", "price alerts", "shopping"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Asin",
+        "shortDescription": "Track Amazon prices and drops",
+        "longDescription": "Asin watches Amazon prices for you. Search Amazon, add a product to your watchlist by ASIN or link, and Asin checks its price on a schedule, keeps every price as history and emails you when it drops, reaches your target or is back in stock. Ask how a price has moved before you buy, which tracked products got cheaper, or who sells a product and at what price. Works on 11 Amazon marketplaces, including the US, UK, Germany, France, Japan and India. Asin only reads and changes the watchlist of the account you connect.",
+        "developerName": "Asin",
+        "category": "Shopping",
+        "capabilities": [
+          "Search Amazon products",
+          "Track product prices",
+          "Read price history",
+          "Set price alerts",
+          "Compare sellers' offers"
+        ],
+        "websiteURL": "https://www.asin.dev",
+        "supportURL": "https://www.asin.dev/support",
+        "privacyPolicyURL": "https://www.asin.dev/privacy-policy",
+        "termsOfServiceURL": "https://www.asin.dev/terms",
+        "defaultPrompt": [
+          "Which products on my watchlist dropped in price?",
+          "Is now a good time to buy the Kindle Paperwhite? Check its price history.",
+          "Track an Amazon product and email me when its price drops."
+        ],
+        "brandColor": "#2563EB",
+        "brandColorDark": "#2563EB",
+        "composerIcon": "./assets/logo.png",
+        "logo": "./assets/logo.png"
+      },
+      "onboardingSkill": "./skills/price-tracking/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Find a product on Amazon",
+              "prompt": "Find the Kindle Paperwhite on Amazon US and tell me its price.",
+              "tools_triggered": "search_amazon",
+              "expected_behavior": "List matching Amazon US products with their ASIN, title, price and rating, and ask which one the user means."
+            },
+            {
+              "description": "Track a product with a target price",
+              "prompt": "Track https://www.amazon.com/dp/B09DFCB66S and alert me if it goes under $100.",
+              "tools_triggered": "track_product",
+              "expected_behavior": "Add the product to the watchlist with a $100 target and report its current price."
+            },
+            {
+              "description": "Find price drops on the watchlist",
+              "prompt": "Which products on my watchlist dropped in price?",
+              "tools_triggered": "list_products",
+              "expected_behavior": "List the tracked products whose price dropped, with their latest and previous prices, or say that none dropped."
+            },
+            {
+              "description": "Judge a price from its history",
+              "prompt": "How has the price of B09DFCB66S moved on Amazon US over the last 90 days?",
+              "tools_triggered": "get_asin_history",
+              "expected_behavior": "Summarize the lowest, highest and average price over the period and compare them with the latest price, without inventing prices that aren't in the history."
+            },
+            {
+              "description": "Check the account",
+              "prompt": "How many credits do I have left on Asin?",
+              "tools_triggered": "get_account",
+              "expected_behavior": "Report the plan, the remaining credits and how many products are tracked."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Buying is not supported",
+              "prompt": "Buy the Kindle Paperwhite on Amazon for me."
+            },
+            {
+              "description": "Unrelated request",
+              "prompt": "Write a short poem about autumn."
+            },
+            {
+              "description": "Another person's data",
+              "prompt": "Show me my neighbor's Amazon order history."
+            }
+          ]
+        },
+        "demo_recording_url": "REPLACE_WITH_DEMO_VIDEO_URL",
+        "commerce": false,
+        "commerce_description": "The plugin doesn't sell anything. Paid plans and credits are bought on asin.dev, outside ChatGPT."
+      },
+      "publication": {
+        "countries": ["US", "GB", "DE", "FR", "IT", "ES", "CA", "JP", "BR", "MX", "IN"],
+        "release_notes": "First release: search Amazon, track prices, read price history, set alerts and compare offers."
+      }
+    }
+  }
+}
